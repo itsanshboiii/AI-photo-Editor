@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Anshul Mohanty">
+    <title>AI Photo Editor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Photo Editor</h1>
+            <p>Upload an image and enhance it with AI-style filters</p>
+        </div>
+
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept="image/*">
+            <button onclick="document.getElementById('fileInput').click()">Upload Image</button>
+            <p>or drag and drop an image here</p>
+        </div>
+
+        <div class="editor-section">
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label>Brightness</label>
+                    <input type="range" id="brightness" min="-100" max="100" value="0">
+                </div>
+                <div class="control-group">
+                    <label>Contrast</label>
+                    <input type="range" id="contrast" min="-100" max="100" value="0">
+                </div>
+                <div class="control-group">
+                    <label>Saturation</label>
+                    <input type="range" id="saturation" min="-100" max="100" value="0">
+                </div>
+                <div class="control-group">
+                    <label>Blur</label>
+                    <input type="range" id="blur" min="0" max="10" value="0">
+                </div>
+                
+                <button onclick="resetFilters()">Reset Filters</button>
+                <button onclick="downloadImage()">Download Image</button>
+
+                <div class="preset-filters">
+                    <button onclick="applyPreset('vintage')">Vintage</button>
+                    <button onclick="applyPreset('dramatic')">Dramatic</button>
+                    <button onclick="applyPreset('bw')">B&W</button>
+                </div>
+
+                <div class="ai-controls">
+                    <h3>AI Enhancement</h3>
+                    <button id="enhanceButton" onclick="applyAIEnhancement()" disabled>Enhance with AI</button>
+                    <div id="aiStatus"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>
